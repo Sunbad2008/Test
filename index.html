@@ -1,59 +1,82 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Của Tôi</title>
-    <style>
-        /* Định dạng CSS có thể được thêm vào đây -- https://sunbad2008.github.io/Test/ */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav {
-            background-color: #666;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+    <title>Football Match Prediction</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file for styling -->
 </head>
 <body>
-
-<header>
-    <h1>Header - Tiêu đề của trang</h1>
-</header>
-
-<nav>
-    <a href="#">Link 1</a> |
-    <a href="#">Link 2</a> |
-    <a href="#">Link 3</a>
-</nav>
-
-<section>
-    <h2>Section 1 - Phần chính của trang</h2>
-    <p>Nội dung của phần này...</p>
-</section>
-
-<footer>
-    <p>Footer - Chân trang của trang web</p>
-</footer>
-
+    <div class="container">
+        <h1>Football Match Prediction</h1>
+        <form id="prediction-form">
+            <div class="form-group">
+                <label for="team1">Team 1:</label>
+                <input type="text" id="team1" name="team1" required>
+            </div>
+            <div class="form-group">
+                <label for="team2">Team 2:</label>
+                <input type="text" id="team2" name="team2" required>
+            </div>
+            <button type="submit">Predict Winner</button>
+        </form>
+        <div id="prediction-result"></div> <!-- This is where the prediction result will be displayed -->
+    </div>
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
 </body>
 </html>
+document.getElementById("prediction-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get user input for both teams
+    const team1 = document.getElementById("team1").value.trim();
+    const team2 = document.getElementById("team2").value.trim();
+
+    // Simulate a simple prediction algorithm (e.g., random selection)
+    const winner = Math.random() < 0.5 ? team1 : team2;
+
+    // Display the prediction result
+    const predictionResultElement = document.getElementById("prediction-result");
+    predictionResultElement.innerHTML = `<p>The predicted winner is: <strong>${winner}</strong></p>`;
+});
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#prediction-result {
+    margin-top: 20px;
+    font-size: 18px;
+}
