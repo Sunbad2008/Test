@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Match Prediction</title>
-    <link rel="stylesheet" href="styles.css"> 
-</head>
-<body>
-    <div class="container">
-        <h1>Football Match Prediction</h1>
-        <form id="prediction-form">
-            <div class="form-group">
-                <label for="team1">Team 1:</label>
-                <select name="my_select">
-                  <option value="1">Mục 1</option>
-                  <option value="2">Mục 2</option>
-                  <option value="3">Mục 3</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="team2">Team 2:</label>
-                <select name="my_select">
-                  <option value="1">Mục 1</option>
-                  <option value="2">Mục 2</option>
-                  <option value="3">Mục 3</option>
-                </select>
+<select name="my_select" onchange="filterData()">
+  <option value="all">Tất cả</option>
+  <option value="1">Mục 1</option>
+  <option value="2">Mục 2</option>
+  <option value="3">Mục 3</option>
+</select>
 
-            </div>
-            <button type="submit">Predict Winner</button>
-        </form>
-        <div id="prediction-result"></div> <!-- This is where the prediction result will be displayed -->
-    </div>
-    <script src="script.js"></script> <!-- Link to external JavaScript file -->
-</body>
-</html>
-<!-- Link to external CSS file for styling -- https://sunbad2008.github.io/Test/ -->
+<script>
+function filterData() {
+  var selectedValue = document.getElementById("my_select").value;
+  // Lọc dữ liệu dựa trên giá trị được chọn
+}
+</script>
